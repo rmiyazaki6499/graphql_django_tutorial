@@ -7,7 +7,7 @@ Graphene Django has a number of additional features that are designed to make wo
 ## Table of Contents
 
 - [Motivations](#motivations)
-- [General info](#general-info))
+- [General info](#general-info)
 - [Setup](#setup)
 - [Features](#features)
 - [Contact](#contact)
@@ -19,7 +19,34 @@ This project is an intro on integrating GraphQL with Django
 
 ## Setup
 
-```Under Development```
+After cloning the project:
+```
+# Creating the virtual environment
+python3 -m venv env
+source env/bin/activate
+pip3 install -r requirements.txt
+
+# Running the server
+python3 cookbook/manage.py runserver
+```
+Once the server is running, go to:
+localhost:8000/graphql/
+
+This will show you the GraphiQL interface. 
+
+An example Query which returns all names and ids for ingredients might look like this:
+```
+query {
+  allIngredients {
+    edges {
+      node {
+        id,
+        name
+      }
+    }
+  }
+}
+```
 
 ## Status
 
