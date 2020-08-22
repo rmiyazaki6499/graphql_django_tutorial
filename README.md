@@ -55,7 +55,7 @@ Graphene Django has a number of additional features that are designed to make wo
   
   This will show you the GraphiQL interface that should look like this:
   
-  
+  ![GraphiQL interface](https://user-images.githubusercontent.com/41876764/90951176-34d05e00-e40d-11ea-91ae-704c2e857024.png)
 
 An example Query which returns all names and ids for ingredients might look like this:
 ```
@@ -107,6 +107,8 @@ Once the server is running, go to:
 localhost:8000/graphql/
 
 This will show you the GraphiQL interface. 
+
+![GraphiQL interface](https://user-images.githubusercontent.com/41876764/90951176-34d05e00-e40d-11ea-91ae-704c2e857024.png)
 
 An example Query which returns all names and ids for ingredients might look like this:
 ```
