@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  django-app:
+  graphql_django_tutorial:
     build: '.'
     ports:
       - '8000:8000'
