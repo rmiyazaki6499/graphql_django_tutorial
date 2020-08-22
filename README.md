@@ -6,18 +6,92 @@ Graphene Django has a number of additional features that are designed to make wo
 
 ## Table of Contents
 
-- [Motivations](#motivations)
-- [General info](#general-info)
+- [Setting up the project](#setting-up-the-project)
+- [Setting up the project with Docker](#setting-up-the-project-with-docker)
+- [Cleaning up the Container and Image](#cleaning-up-the-container-and-image)
 - [Setup](#setup)
-- [Features](#features)
+- [Inspiration](#inspiration)
 - [Contact](#contact)
 
 
-## General info
+## Setting up the project
 
-This project is an intro on integrating GraphQL with Django
+  Start by cloning the project with the command:
+  ```
+  $ git clone https://github.com/rmiyazaki6499/graphql_django_tutorial.git
+  ```
+  
+  ## Setting up the project with Docker
 
-## Setup
+  For those that are not interested in setting up the project manually or would simply not have to worry about downloading node.js and its dependencies, I have created a Dockerfile and docker-compose.yml file to help create a container with everything you would need to run the **project**.
+
+  ### Install Docker
+
+  To make this as easy as possible, we will be using *Docker Compose* to creat our container.
+
+  - If you do not have Docker yet, start by downloading it here if you are on a Mac or Windows:
+  https://www.docker.com/products/docker-desktop
+
+  - Or if you are on a Linux Distribution follow the directions here:
+  https://docs.docker.com/compose/install/
+
+  - To confirm you have Docker Compose, open up your terminal and run the command below:
+
+  ```
+  $ docker-compose --version
+  docker-compose version 1.26.2, build eefe0d31
+  ```
+  
+  - Go into the project directory to build and run the container with:
+
+  ```
+  $ cd dja_vue_gql/
+  $ docker-compose up -d --build
+  ```
+
+  **This may take a few moments**
+  
+  Navigate to http://localhost:8000/graphql to view the site on the local server.
+  
+  This will show you the GraphiQL interface that should look like this:
+  
+  
+
+An example Query which returns all names and ids for ingredients might look like this:
+```
+query {
+  allIngredients {
+    edges {
+      node {
+        id,
+        name
+      }
+    }
+  }
+}
+```
+  
+  ### Cleaning up the Container and Image
+
+  - To stop the container from running, use `<Ctrl-C>` twice.
+  - To close down the container use the command:
+
+  ```
+  $ docker-compose down
+  ```
+  - Then to clean up the container and image which we are no longer using use the command:
+
+  ```
+  $ docker system prune -fa
+  ```
+
+  - Confirm that the container and image is no longer there with:
+
+  ```
+  $ docker system df -v
+  ```
+
+## Setting up the project manually
 
 After cloning the project:
 ```
@@ -27,7 +101,7 @@ source env/bin/activate
 pip3 install -r requirements.txt
 
 # Running the server
-python3 cookbook/manage.py runserver
+python3 manage.py runserver
 ```
 Once the server is running, go to:
 localhost:8000/graphql/
@@ -48,9 +122,6 @@ query {
 }
 ```
 
-## Status
-
-Project is: _Under development_
 
 ## Inspiration
 
